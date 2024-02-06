@@ -17,6 +17,14 @@ export default async function Home() {
     orderBy: {
       createdAt: "desc",
     },
+    include: {
+      user: {
+        select: {
+          image: true,
+          name: true,
+        },
+      },
+    },
   });
 
   return (
