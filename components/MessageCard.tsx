@@ -2,11 +2,18 @@ import Image from "next/image";
 import { getServerSession } from "next-auth";
 import profilepicplaceholder from "@/assets/profile-pic-placeholder.png";
 import { options } from "@/app/api/auth/[...nextauth]/options";
-import { Messages } from "@prisma/client";
 import DeleteButton from "./DeleteButton";
+import { Messages } from "@prisma/client";
+
+type messages = {
+  user: {
+    name: string | null;
+    image: string | null;
+  } | null;
+} & Messages;
 
 interface MessageCardProps {
-  message: Messages;
+  message: messages;
   pub: boolean;
 }
 
@@ -20,14 +27,14 @@ export default async function MessageCard({ message, pub }: MessageCardProps) {
           <div className="avatar">
             <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
               <Image
-                src={user?.image || profilepicplaceholder}
+                src={message.user?.image || profilepicplaceholder}
                 alt="Profile pic"
                 width={100}
                 height={100}
               />
             </div>
           </div>
-          <h2 className="card-title">{user?.name}</h2>
+          <h2 className="card-title">{message.user?.name}</h2>
         </div>
         <div>
           <p>{message.content}</p>

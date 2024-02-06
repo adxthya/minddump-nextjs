@@ -6,6 +6,14 @@ export default async function Messages() {
     where: {
       isPrivate: false,
     },
+    include: {
+      user: {
+        select: {
+          name: true,
+          image: true,
+        },
+      },
+    },
   });
 
   return (
