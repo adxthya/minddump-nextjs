@@ -14,7 +14,6 @@ const FormSubmit = ({ children, className, ...props }: FormSubmitProps) => {
       {...props}
       className={`btn btn-primary btn-sm ${className}`}
       type="submit"
-      disabled={pending}
     >
       {pending && <span className="loading loading-spinner" />}
       {children}

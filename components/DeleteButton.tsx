@@ -13,18 +13,21 @@ interface DeleteButtonProps {
 
 export default function DeleteButton({ message }: DeleteButtonProps) {
   const router = useRouter();
-  const [pending, isPending] = useState(false);
+  const [pending, setPending] = useState(false);
   return (
     <button
       className="btn bg-white flex"
       onClick={() => {
-        isPending(true);
+        setPending(true);
         deleteMessage(message);
-        isPending(false);
         router.refresh();
       }}
     >
-      <Image src={deleteLogo} width={25} height={30} alt="Delete logo" />
+      {pending ? (
+        <span className="loading loading-spinner text-neutral"></span>
+      ) : (
+        <Image src={deleteLogo} width={25} height={30} alt="Delete logo" />
+      )}
       Delete
     </button>
   );
