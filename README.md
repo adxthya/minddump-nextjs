@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Minddump
 
-## Getting Started
+A place to dump your thoughts and worries. Messages can be private and public allowing u to choose that to share with other and what to be private. Use it as your personal diary or maybe just a place to vent out 
 
-First, run the development server:
+
+
+## Run Locally
+### Database configuration
+
+Before running the project, create a mongodb database and provide the connection url for prisma in the .env file
+
+### OAuth Configuration
+
+Create an account in Google developer console and create a project. The redirect uri must be set as localhost to run the project locally. The Secret_id and Client_id are required and should be entered in an env file.
+
+### Env Variables
+
+Env variables for Google OAuth, MongoDB and Auth.js should be provided in a .env file in the root dir
+
+### Starting the node server 
+
+Clone the project
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+  git clone https://github.com/adithyakb10/minddump-nextjs
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Go to the project directory
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+  cd minddump-nextjs
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Install dependencies
 
-## Learn More
+```bash
+  npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+Set up prisma 
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+  npx prisma init
+  npx prisma db push
+  npx prisma generate
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Start the server
 
-## Deploy on Vercel
+```bash
+  npm run dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Tech Stack
+- Built using next-js
+- Authentication using auth.js
+- Database - MongoDB
+- ORM - Prisma
+## Badges
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![GitHub issues](https://img.shields.io/github/issues/adithyakb10/minddump-nextjs)
+
+![GitHub commit activity](https://img.shields.io/github/commit-activity/t/adithyakb10/minddump-nextjs)
+
+![GitHub last commit (branch)](https://img.shields.io/github/last-commit/adithyakb10/minddump-nextjs/main)
+
+## Demo
+
+Checkout the live demo : https://minddump.vercel.app
+
+## Acknowledgements
+
+Inspired from this website 
+
+ - [dump.place](https://dump.place)
+ 
+
+## Appendix
+
+Raise an issue if anything needs to be fixed 
+PRs are welcome 
+
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
+
+
+
