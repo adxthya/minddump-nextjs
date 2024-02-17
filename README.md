@@ -1,6 +1,6 @@
 # Minddump
 
-A place to dump your thoughts and worries. Messages can be private and public allowing u to choose what to share with other and what to be private. Use it as your personal diary or maybe just a place to vent out 
+A place to dump your thoughts and worries. Messages can be private and public allowing u to choose what to share with others and what to be private. Use it as your personal diary or maybe just a place to vent out 
 
 
 
