@@ -28,7 +28,11 @@ async function submitMessage(formData: FormData) {
 
 export default async function ProfileCard() {
   const session = await getServerSession(options);
-  const user = session?.user;
+  const user = await prisma.user.findUnique({
+    where: {
+      id: session?.user.id,
+    },
+  });
   return (
     <div className="m-auto flex justify-center items-center flex-col gap-3">
       <div className="avatar">
@@ -42,7 +46,7 @@ export default async function ProfileCard() {
         </div>
       </div>
       <div>
-        <p className="text-xl">{user?.name}</p>
+        <p className="text-xl">{user?.profileName}</p>
       </div>
       <form action={submitMessage}>
         <textarea

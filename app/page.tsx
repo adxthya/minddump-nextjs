@@ -10,6 +10,14 @@ export default async function Home() {
   if (!session) {
     redirect("/login");
   }
+  const user = await prisma.user.findUnique({
+    where: {
+      id: session.user.id,
+    },
+  });
+  if (!user?.profileName) {
+    redirect("/settings");
+  }
   const messages = await prisma.messages.findMany({
     where: {
       userId: session?.user.id,
@@ -21,7 +29,7 @@ export default async function Home() {
       user: {
         select: {
           image: true,
-          name: true,
+          profileName: true,
         },
       },
     },
@@ -33,7 +41,11 @@ export default async function Home() {
       <p className="text-2xl">Messages!</p>
       <div className="flex flex-col gap-2">
         {messages.map((message) => (
-          <MessageCard message={message} key={message.id} pub={false} />
+          <MessageCard
+            message={message}
+            key={message.id}
+            pub={false}
+          />
         ))}
       </div>
     </div>
