@@ -9,7 +9,7 @@ export default async function Messages() {
     include: {
       user: {
         select: {
-          name: true,
+          profileName: true,
           image: true,
         },
       },
@@ -23,7 +23,11 @@ export default async function Messages() {
       </p>
       <div className="flex flex-col gap-5">
         {messages.map((message) => (
-          <MessageCard message={message} pub={true} key={message.id} />
+          <MessageCard
+            message={message}
+            pub={true}
+            key={message.id}
+          />
         ))}
       </div>
     </div>

@@ -7,7 +7,7 @@ import { Messages } from "@prisma/client";
 
 type messages = {
   user: {
-    name: string | null;
+    profileName: string | null;
     image: string | null;
   } | null;
 } & Messages;
@@ -34,7 +34,7 @@ export default async function MessageCard({ message, pub }: MessageCardProps) {
               />
             </div>
           </div>
-          <h2 className="card-title">{message.user?.name}</h2>
+          <h2 className="card-title">{message.user?.profileName}</h2>
         </div>
         <div>
           <p>{message.content}</p>
