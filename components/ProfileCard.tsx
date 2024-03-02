@@ -36,7 +36,7 @@ export default async function ProfileCard() {
   return (
     <div className="m-auto flex justify-center items-center flex-col gap-3">
       <div className="avatar">
-        <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+        <div className="w-24 rounded-full ring ring-black ring-offset-base-100 ring-offset-2">
           <Image
             src={user?.image || profilepicholder}
             alt="Profile pic"
@@ -50,7 +50,7 @@ export default async function ProfileCard() {
       </div>
       <form action={submitMessage}>
         <textarea
-          className="textarea textarea-primary bg-black text-white h-[148px] w-[300px]"
+          className="textarea border border-white bg-black text-white h-[148px] w-[300px]"
           placeholder="Message"
           name="message"
         ></textarea>
