@@ -10,7 +10,7 @@ export default async function Login() {
   }
 
   return (
-    <div className="flex justify-between w-full items-center px-2 md:h-screen pb-44">
+    <div className="flex justify-between w-full items-center px-2 h-screen pb-44">
       <div className="text-lg w-[900px] max-sm:w-[170px]">
         <h1 className="text-5xl">
           Welcome to <span className="italic">mind</span> dump
