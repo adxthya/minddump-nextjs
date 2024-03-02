@@ -19,6 +19,8 @@ export async function updateUser(data: FormDataValues) {
       profileName: data.username,
     },
   });
+  revalidatePath("/", "page");
+  revalidatePath("/messages", "page");
 }
 
 export async function validateForm(username: string) {

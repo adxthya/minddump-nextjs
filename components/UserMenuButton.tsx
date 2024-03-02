@@ -14,7 +14,10 @@ export default function UserMenuButton({ session }: UserMenuButtonProps) {
   const user = session?.user;
   return (
     <div className="dropdown dropdown-end">
-      <label tabIndex={0} className="btn btn-ghost btn-circle">
+      <label
+        tabIndex={0}
+        className="btn btn-ghost btn-circle"
+      >
         {user ? (
           <Image
             src={user?.image || profilepicplaceholder}
@@ -55,7 +58,7 @@ export default function UserMenuButton({ session }: UserMenuButtonProps) {
           )}
         </li>
         <li>
-          <Link href="/settings">settings</Link>
+          <Link href="/settings">Settings</Link>
         </li>
       </ul>
     </div>
