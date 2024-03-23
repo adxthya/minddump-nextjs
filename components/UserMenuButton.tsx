@@ -5,13 +5,16 @@ import Image from "next/image";
 import profilepicplaceholder from "@/assets/profile-pic-placeholder.png";
 import { signIn, signOut } from "next-auth/react";
 import Link from "next/link";
+import avatarFetch from "@/lib/avatar";
 
 interface UserMenuButtonProps {
   session: Session | null;
+  name?: string | null;
 }
 
-export default function UserMenuButton({ session }: UserMenuButtonProps) {
+export default function UserMenuButton({ session, name }: UserMenuButtonProps) {
   const user = session?.user;
+  const link = avatarFetch(name);
   return (
     <div className="dropdown dropdown-end">
       <label
@@ -20,7 +23,7 @@ export default function UserMenuButton({ session }: UserMenuButtonProps) {
       >
         {user ? (
           <Image
-            src={user?.image || profilepicplaceholder}
+            src={link || profilepicplaceholder}
             alt="Profile Pic"
             width={40}
             height={40}

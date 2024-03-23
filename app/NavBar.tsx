@@ -1,10 +1,17 @@
 import UserMenuButton from "@/components/UserMenuButton";
 import { getServerSession } from "next-auth";
 import Link from "next/link";
+import prisma from "@/lib/db/db";
 import { options } from "./api/auth/[...nextauth]/options";
 
 export default async function NavBar() {
   const session = await getServerSession(options);
+  const user = await prisma.user.findFirst({
+    where: {
+      id: session?.user.id,
+    },
+  });
+  const name = user?.profileName;
   return (
     <div className="navbar bg-black">
       <div className="flex-1">
@@ -33,7 +40,10 @@ export default async function NavBar() {
             </Link>
           </li>
         </ul>
-        <UserMenuButton session={session} />
+        <UserMenuButton
+          session={session}
+          name={name}
+        />
       </div>
     </div>
   );

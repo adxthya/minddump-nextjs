@@ -4,6 +4,7 @@ import profilepicplaceholder from "@/assets/profile-pic-placeholder.png";
 import { options } from "@/app/api/auth/[...nextauth]/options";
 import DeleteButton from "./DeleteButton";
 import { Messages } from "@prisma/client";
+import avatarFetch from "@/lib/avatar";
 
 type messages = {
   user: {
@@ -20,6 +21,8 @@ interface MessageCardProps {
 export default async function MessageCard({ message, pub }: MessageCardProps) {
   const session = await getServerSession(options);
   const user = session?.user;
+  const name = message.user?.profileName;
+  const link = avatarFetch(name);
   return (
     <div className="card w-96 bg-gray-500 border border-b-2 border-gray-700  shadow-xl m-auto ">
       <div className="card-body flex gap-4">
@@ -27,7 +30,7 @@ export default async function MessageCard({ message, pub }: MessageCardProps) {
           <div className="avatar">
             <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
               <Image
-                src={message.user?.image || profilepicplaceholder}
+                src={link || profilepicplaceholder}
                 alt="Profile pic"
                 width={100}
                 height={100}

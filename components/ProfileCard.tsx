@@ -5,6 +5,7 @@ import { revalidatePath } from "next/cache";
 import FormSubmit from "./FormSubmit";
 import profilepicholder from "@/assets/profile-pic-placeholder.png";
 import Image from "next/image";
+import avatarFetch from "@/lib/avatar";
 
 async function submitMessage(formData: FormData) {
   "use server";
@@ -33,20 +34,22 @@ export default async function ProfileCard() {
       id: session?.user.id,
     },
   });
+  const name = user?.profileName;
+  const link = avatarFetch(name);
   return (
     <div className="m-auto flex justify-center items-center flex-col gap-3">
       <div className="avatar">
         <div className="w-24 rounded-full ring ring-black ring-offset-base-100 ring-offset-2">
           <Image
-            src={user?.image || profilepicholder}
+            src={link || profilepicholder}
             alt="Profile pic"
-            width={100}
-            height={100}
+            width={500}
+            height={500}
           />
         </div>
       </div>
       <div>
-        <p className="text-xl">{user?.profileName}</p>
+        <p className="text-xl">{name}</p>
       </div>
       <form action={submitMessage}>
         <textarea
