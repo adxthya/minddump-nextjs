@@ -10,7 +10,7 @@ export default function LoginButton() {
 
   return (
     <div className="flex flex-col justify-center items-center lg:w-[500px]">
-      <p className="text-4xl text-center">Login</p>
+      <p className="text-4xl text-center hidden md:flex">Login</p>
       <button
         className="btn btn-ghost w-fit"
         onClick={() => {
@@ -25,7 +25,7 @@ export default function LoginButton() {
             width={30}
             height={40}
           />
-          <p className="text-nowrap">Sign in using google</p>
+          <p className="text-nowrap text-lg">Sign in using google</p>
         </div>
       </button>
     </div>

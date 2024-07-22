@@ -38,7 +38,7 @@ export default function settings() {
   }, [isSubmitSuccessful, reset]);
 
   return (
-    <div className="w-screen flex flex-col justify-center items-center gap-2 mt-24">
+    <div className="w-screen flex flex-col justify-center items-center gap-2 pt-24">
       <div className="flex flex-col justify-center items-center gap-2">
         <div className="avatar">
           <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
