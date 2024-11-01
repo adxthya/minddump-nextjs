@@ -53,7 +53,7 @@ export default async function ProfileCard() {
       </div>
       <form action={submitMessage}>
         <textarea
-          className="textarea border border-gray-400 bg-black text-white h-[148px] w-[500px] p-5 focus:border-gray-300"
+          className="textarea border border-gray-400 bg-black text-white h-[148px] w-[350px] md:w-[500px] p-5 focus:border-gray-300"
           placeholder="Message"
           name="message"
         ></textarea>
