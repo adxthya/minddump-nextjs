@@ -14,16 +14,18 @@ export default async function Login() {
       <div className="text-lg md:w-[900px] ">
         <h1 className="text-5xl text-center md:flex md:gap-2 pt-10 md:pt-0 mb-10 md:mb-0">
           Welcome to
-          <div className="pt-2 md:pt-0">
-            <span className="italic text-blue-400">mind</span> dump
+          <div className="pt-2 md:pt-0 pl-4">
+            <p className="bg-gradient-to-r from-violet-500  to-indigo-500 inline-block text-transparent bg-clip-text">
+              minddump
+            </p>
           </div>
         </h1>
-        <p className="text-3xl pt-3">
+        <p className="text-2xl pt-3">
           A place where you can share your thoughts and worries.
         </p>
-        <p className="text-3xl pt-3"> Posts can be private or public.</p>
+        <p className="text-2xl pt-3"> Posts can be private or public.</p>
       </div>
-      <div className="mt-20">
+      <div className="mt-20 md:mt-0">
         <LoginButton />
       </div>
     </div>

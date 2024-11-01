@@ -39,7 +39,7 @@ export default function settings() {
 
   return (
     <div className="w-screen flex flex-col justify-center items-center gap-2 pt-24">
-      <div className="flex flex-col justify-center items-center gap-2">
+      <div className="flex flex-col justify-center items-center gap-6">
         <div className="avatar">
           <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
             <Image
@@ -50,7 +50,12 @@ export default function settings() {
             />
           </div>
         </div>
-        <button className="btn btn-sm btn-neutral">Change Avatar</button>
+        <button
+          className="btn btn-sm btn-neutral"
+          onClick={() => alert("Haven't fixed that yet :(")}
+        >
+          Change Avatar
+        </button>
         <form
           onSubmit={handleSubmit((data) => updateUser(data))}
           noValidate
@@ -99,7 +104,7 @@ export default function settings() {
               )}
               <button
                 type="submit"
-                className="btn btn-sm w-16 btn-outline  mt-1"
+                className="btn btn-sm w-16 btn-neutral mt-1"
                 disabled={isSubmitting}
               >
                 Submit

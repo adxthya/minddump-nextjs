@@ -48,16 +48,16 @@ export default async function ProfileCard() {
           />
         </div>
       </div>
-      <div>
+      <div className="py-3">
         <p className="text-xl">{name}</p>
       </div>
       <form action={submitMessage}>
         <textarea
-          className="textarea border border-white bg-black text-white h-[148px] w-[300px]"
+          className="textarea border border-gray-400 bg-black text-white h-[148px] w-[500px] p-5 focus:border-gray-300"
           placeholder="Message"
           name="message"
         ></textarea>
-        <div className="flex w-full pt-2 flex-col items-end gap-2">
+        <div className="flex w-full pt-5 flex-col items-end gap-5">
           <div className="flex gap-2">
             <p>Private</p>
             <input

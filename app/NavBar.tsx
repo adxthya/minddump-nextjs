@@ -13,19 +13,17 @@ export default async function NavBar() {
   });
   const name = user?.profileName;
   return (
-    <div className="navbar bg-black md:absolute">
+    <div className="navbar bg-black md:absolute z-10">
       <div className="flex-1">
         <p className="text-xl px-1">
-          <Link href="/">
-            mind<span className="italic">Dump</span>
-          </Link>
+          <Link href="/">MindDump</Link>
         </p>
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1 lg:text-lg">
           <li>
             <Link
-              className="text-white active:text-gray-700 transition-colors ease-in-out delay-75"
+              className="text-white active:text-blue-500 transition-colors ease-in-out delay-75"
               href="/"
             >
               Home
@@ -33,7 +31,7 @@ export default async function NavBar() {
           </li>
           <li>
             <Link
-              className="text-white active:text-gray-700 transition-colors ease-in-out delay-75"
+              className="text-white transition-colors ease-in-out delay-75"
               href="/messages"
             >
               Messages
