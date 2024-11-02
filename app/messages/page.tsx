@@ -17,7 +17,7 @@ export default async function Messages() {
   });
 
   return (
-    <div className="flex flex-col gap-10 pt-20 items-center">
+    <div className="flex flex-col gap-10 py-20 items-center">
       <p className="text-4xl">Public Messages!</p>
       <div className="flex flex-col gap-10">
         {messages.map((message) => (

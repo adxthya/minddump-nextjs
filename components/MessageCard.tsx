@@ -24,7 +24,7 @@ export default async function MessageCard({ message, pub }: MessageCardProps) {
   const name = message.user?.profileName;
   const link = avatarFetch(name);
   return (
-    <div className="card w-96 bg-gray-500 m-auto">
+    <div className="card w-[22rem] bg-gray-500 m-auto">
       <div className="card-body flex gap-4">
         <div className="flex gap-4">
           <div className="avatar">
@@ -40,7 +40,7 @@ export default async function MessageCard({ message, pub }: MessageCardProps) {
           <h2 className="card-title">{message.user?.profileName}</h2>
         </div>
         <div>
-          <p className="text-lg px-2 py-5">{message.content}</p>
+          <p className="text-lg px-2 py-2">{message.content}</p>
           <div className="card-actions flex-col items-end">
             {pub ? null : <DeleteButton message={message} />}
             {message.isPrivate ? (

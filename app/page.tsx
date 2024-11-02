@@ -36,10 +36,10 @@ export default async function Home() {
   });
 
   return (
-    <div className="flex flex-col gap-5 m-auto items-center pt-16 md:pt-24">
+    <div className="flex flex-col gap-5 m-auto items-center py-16 md:pt-24">
       <ProfileCard />
       <p className="text-2xl">Messages!</p>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-10">
         {messages.map((message) => (
           <MessageCard
             message={message}
