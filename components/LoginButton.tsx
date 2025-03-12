@@ -10,7 +10,6 @@ export default function LoginButton() {
 
   return (
     <div className="flex flex-col justify-center items-center lg:w-[500px]">
-      <p className="text-4xl text-center hidden md:flex">Login</p>
       <button
         className="btn btn-ghost w-fit"
         onClick={() => {

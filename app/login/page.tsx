@@ -10,22 +10,27 @@ export default async function Login() {
   }
 
   return (
-    <div className="md:flex md:justify-between w-full items-center px-5 md:h-screen">
-      <div className="text-lg md:w-[900px] ">
-        <h1 className="text-5xl text-center md:flex md:gap-2 pt-10 md:pt-0 mb-10 md:mb-0">
+    <div className="flex flex-col justify-center h-[100dvh] px-5 text-center w-full items-center">
+      <div>
+        <h1 className="text-5xl md:text-7xl text-center md:flex md:gap-2 mb-8 md:mb-5 font-extrabold justify-center">
           Welcome to
-          <div className="pt-2 md:pt-0 pl-4">
-            <p className="bg-gradient-to-r from-violet-500  to-indigo-500 inline-block text-transparent bg-clip-text">
-              minddump
+          <div className="pt-2 md:pt-0 pl-4 md:pl-2">
+            <p className="bg-gradient-to-r from-violet-500 to-indigo-500 inline-block text-transparent bg-clip-text">
+              MindDump
             </p>
           </div>
         </h1>
-        <p className="text-2xl pt-3">
-          A place where you can share your thoughts and worries.
+        <p className="md:text-3xl text-xl">
+          A place where you can share your{" "}
+          <span className="font-bold">thoughts</span> and{" "}
+          <span className="font-bold">worries</span>.
         </p>
-        <p className="text-2xl pt-3"> Posts can be private or public.</p>
+        <p className="md:text-2xl text-lg pt-3">
+          {" "}
+          Posts can be private or public.
+        </p>
       </div>
-      <div className="mt-20 md:mt-0">
+      <div className="mt-10">
         <LoginButton />
       </div>
     </div>

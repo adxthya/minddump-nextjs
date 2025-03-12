@@ -13,7 +13,7 @@ export default async function NavBar() {
   });
   const name = user?.profileName;
   return (
-    <div className="navbar bg-black md:absolute z-10">
+    <div className="navbar bg-black absolute z-10">
       <div className="flex-1">
         <p className="text-xl px-1">
           <Link href="/">MindDump</Link>

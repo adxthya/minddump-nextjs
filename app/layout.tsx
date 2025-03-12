@@ -7,8 +7,7 @@ import { getServerSession } from "next-auth";
 import SessionProvider from "../components/SessionProvider";
 import { options } from "./api/auth/[...nextauth]/options";
 
-const myFont = localFont({ src: "../assets/fonts/iosevka.ttf" });
-const poppins = Poppins({ subsets: ["latin"], weight: "400" });
+const myFont = localFont({ src: "../assets/fonts/kumbhsans.ttf" });
 
 export const metadata: Metadata = {
   title: "MindDump",
