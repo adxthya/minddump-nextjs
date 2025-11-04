@@ -2,10 +2,8 @@
 
 import { Messages } from "@prisma/client";
 import deleteMessage from "@/actions/deleteMessage";
-import Image from "next/image";
-import deleteLogo from "../assets/delete.svg";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useTransition } from "react";
 
 interface DeleteButtonProps {
   message: Messages;
@@ -13,16 +11,17 @@ interface DeleteButtonProps {
 
 export default function DeleteButton({ message }: DeleteButtonProps) {
   const router = useRouter();
-  const [pending, setPending] = useState(false);
+  const [isPending, startTransition] = useTransition();
 
   return (
     <button
       onClick={() => {
-        setPending(true);
-        deleteMessage(message);
-        router.refresh();
+        startTransition(async () => {
+          await deleteMessage(message); // ✅ Await server action
+          router.refresh(); // ✅ Refresh after delete completes
+        });
       }}
-      disabled={pending}
+      disabled={isPending}
       className="group/btn relative inline-flex items-center gap-2 px-4 py-2 bg-red-500/10 hover:bg-red-500/20 border border-red-500/30 hover:border-red-500/50 rounded-lg text-red-400 hover:text-red-300 text-sm font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed overflow-hidden"
     >
       {/* Animated background on hover */}
@@ -30,7 +29,7 @@ export default function DeleteButton({ message }: DeleteButtonProps) {
 
       {/* Content */}
       <div className="relative flex items-center gap-2">
-        {pending ? (
+        {isPending ? (
           <svg
             className="animate-spin h-4 w-4"
             xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +65,7 @@ export default function DeleteButton({ message }: DeleteButtonProps) {
             />
           </svg>
         )}
-        <span>{pending ? "Deleting..." : "Delete"}</span>
+        <span>{isPending ? "Deleting..." : "Delete"}</span>
       </div>
     </button>
   );

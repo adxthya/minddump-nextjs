@@ -1,45 +1,19 @@
-import { options } from "@/app/api/auth/[...nextauth]/options";
-import { getServerSession } from "next-auth";
-import prisma from "@/lib/db/db";
-import { revalidatePath } from "next/cache";
-import FormSubmit from "./FormSubmit";
-import profilepicholder from "@/assets/profile-pic-placeholder.png";
+// ProfileCard.tsx
 import Image from "next/image";
+import getUser from "@/actions/getUser";
 import avatarFetch from "@/lib/avatar";
-
-async function submitMessage(formData: FormData) {
-  "use server";
-  const session = await getServerSession(options);
-  const message = formData.get("message")?.toString();
-  const checkPrivate = formData.get("private")?.toString();
-  const isPrivate = checkPrivate === "true";
-
-  if (!message) {
-    throw Error("Missing required fields");
-  }
-  await prisma?.messages.create({
-    data: {
-      userId: session?.user.id,
-      content: message,
-      isPrivate: isPrivate,
-    },
-  });
-  revalidatePath("/");
-}
+import ClientForm from "./ClientForm";
+import profilepicholder from "@/assets/profile-pic-placeholder.png";
 
 export default async function ProfileCard() {
-  const session = await getServerSession(options);
-  const user = await prisma.user.findUnique({
-    where: {
-      id: session?.user.id,
-    },
-  });
+  const user = await getUser();
   const name = user?.profileName;
   const link = avatarFetch(name);
+
   return (
     <div className="m-auto flex justify-center items-center flex-col gap-3">
       <div className="avatar">
-        <div className="w-24 rounded-full ring ring-black ring-offset-base-100 ring-offset-2">
+        <div className="w-24 rounded-full ring ring-black ring-offset-2">
           <Image
             src={link || profilepicholder}
             alt="Profile pic"
@@ -48,34 +22,10 @@ export default async function ProfileCard() {
           />
         </div>
       </div>
-      <div className="py-3">
-        <p className="text-xl">{name}</p>
-      </div>
-      <form
-        action={submitMessage}
-        className="space-y-4"
-      >
-        <textarea
-          name="message"
-          rows={5}
-          placeholder="Write a message..."
-          className="w-[22rem] md:w-[500px] px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-gray-100 placeholder-gray-500 focus:outline-none focus:border-gray-600 transition-colors resize-none"
-        ></textarea>
 
-        <div className="flex items-center justify-between">
-          <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-300">
-            <input
-              name="private"
-              type="checkbox"
-              className="toggle"
-              value="true"
-            />
-            Private
-          </label>
+      <p className="text-xl py-3">{name}</p>
 
-          <FormSubmit>Submit</FormSubmit>
-        </div>
-      </form>
+      <ClientForm />
     </div>
   );
 }
