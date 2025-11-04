@@ -14,6 +14,9 @@ export default async function Messages() {
         },
       },
     },
+    orderBy: {
+      createdAt: "desc",
+    },
   });
 
   return (
