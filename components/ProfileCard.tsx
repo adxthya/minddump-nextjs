@@ -51,22 +51,28 @@ export default async function ProfileCard() {
       <div className="py-3">
         <p className="text-xl">{name}</p>
       </div>
-      <form action={submitMessage}>
+      <form
+        action={submitMessage}
+        className="space-y-4"
+      >
         <textarea
-          className="textarea border border-gray-400 bg-black text-white h-[148px] w-[350px] md:w-[500px] p-5 focus:border-gray-300"
-          placeholder="Message"
           name="message"
+          rows={5}
+          placeholder="Write a message..."
+          className="w-[500px] px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-gray-100 placeholder-gray-500 focus:outline-none focus:border-gray-600 transition-colors resize-none"
         ></textarea>
-        <div className="flex w-full pt-5 flex-col items-end gap-5">
-          <div className="flex gap-2">
-            <p>Private</p>
+
+        <div className="flex items-center justify-between">
+          <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-300">
             <input
               name="private"
               type="checkbox"
               className="toggle"
               value="true"
             />
-          </div>
+            Private
+          </label>
+
           <FormSubmit>Submit</FormSubmit>
         </div>
       </form>
