@@ -59,7 +59,7 @@ export default async function ProfileCard() {
           name="message"
           rows={5}
           placeholder="Write a message..."
-          className="w-[500px] px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-gray-100 placeholder-gray-500 focus:outline-none focus:border-gray-600 transition-colors resize-none"
+          className="w-[22rem] md:w-[500px] px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-gray-100 placeholder-gray-500 focus:outline-none focus:border-gray-600 transition-colors resize-none"
         ></textarea>
 
         <div className="flex items-center justify-between">

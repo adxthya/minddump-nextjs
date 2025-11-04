@@ -25,7 +25,7 @@ export default async function MessageCard({ message, pub }: MessageCardProps) {
   const link = avatarFetch(name);
 
   return (
-    <article className="group relative w-full min-w-[28rem] max-w-2xl mx-auto">
+    <article className="group relative min-w-[22rem] md:min-w-[28rem] max-w-2xl mx-auto">
       {/* Main card container */}
       <div className="relative bg-gray-800 rounded-2xl shadow-sm border border-gray-700 overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/10 hover:border-gray-600">
         {/* Header section with avatar and name */}
